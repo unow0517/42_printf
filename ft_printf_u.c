@@ -6,7 +6,7 @@
 /*   By: yowoo <yowoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 07:46:48 by yowoo             #+#    #+#             */
-/*   Updated: 2023/11/01 10:25:57 by yowoo            ###   ########.fr       */
+/*   Updated: 2023/11/02 14:16:43 by yowoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,22 @@ int	ft_printf_u(unsigned int num)
 {
 	int		res;
 	char	*ptr;
+	int		i;
 
 	if (num == 0)
 	{
-		ft_putnbr(0);
+		i = ft_putnbr(0);
 		return (1);
 	}
 	else
 	{
 		ptr = putintplus(num);
-		ft_putstr(ptr);
+		i = ft_putstr(ptr);
 		free(ptr);
 	}
 	res = dec_len_uint(num);
+	if (i == -1)
+		return (-1);
 	return (res);
 }
 

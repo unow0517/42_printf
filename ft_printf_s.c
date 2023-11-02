@@ -6,7 +6,7 @@
 /*   By: yowoo <yowoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 10:01:47 by yowoo             #+#    #+#             */
-/*   Updated: 2023/11/01 09:59:31 by yowoo            ###   ########.fr       */
+/*   Updated: 2023/11/02 15:08:12 by yowoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,18 @@
 int	ft_printf_s(char *s)
 {
 	int	len;
+	int	i;
 
 	if (s == 0)
 	{
-		ft_putstr("(null)");
+		i = ft_putstr("(null)");
+		if (i == -1)
+			return (-1);
 		return (6);
 	}
-	ft_putstr(s);
+	i = ft_putstr(s);
+	if (i == -1)
+		return (-1);
 	len = ft_strlen(s);
 	return (len);
 }

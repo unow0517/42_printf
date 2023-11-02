@@ -6,7 +6,7 @@
 /*   By: yowoo <yowoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 10:03:49 by yowoo             #+#    #+#             */
-/*   Updated: 2023/11/01 10:22:39 by yowoo            ###   ########.fr       */
+/*   Updated: 2023/11/02 15:31:42 by yowoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 int	ft_printf_int(int n)
 {
 	int	res;
+	int	i;
 
+	i = 0;
 	if (n == -2147483648)
 		res = 11;
 	else if (n < 0)
 		res = dec_len_uint(-n) + 1;
 	else
 		res = dec_len_uint(n);
-	ft_putnbr(n);
+	i = ft_putnbr(n);
+	if (i == -1)
+		return (-1);
 	return (res);
 }

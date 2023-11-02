@@ -6,7 +6,7 @@
 /*   By: yowoo <yowoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 09:17:21 by yowoo             #+#    #+#             */
-/*   Updated: 2023/11/01 10:46:56 by yowoo            ###   ########.fr       */
+/*   Updated: 2023/11/02 14:18:07 by yowoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,15 @@ int	hex_len_int(int n)
 int	ft_printf_x(unsigned int n, const char *format)
 {
 	int	res;
+	int	i;
 
+	i = 0;
 	if (*format == 'x')
-		ft_put_hex_u(n);
+		i = ft_put_hex_u(n);
 	else if (*format == 'X')
-		ft_put_hexbig_u(n);
+		i = ft_put_hexbig_u(n);
 	res = hex_len_int(n);
+	if (i == -1)
+		return (-1);
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: yowoo <yowoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 10:00:19 by yowoo             #+#    #+#             */
-/*   Updated: 2023/11/01 10:47:05 by yowoo            ###   ########.fr       */
+/*   Updated: 2023/11/02 14:20:49 by yowoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,11 @@ int	dec_len_uint(unsigned int n)
 	return (1);
 }
 
-void	ft_put_hex_u(unsigned long n)
+int	ft_put_hex_u(unsigned long n)
 {
+	int	i;
+
+	i = 0;
 	if (n >= 16)
 	{
 		ft_put_hex_u(n / 16);
@@ -57,16 +60,22 @@ void	ft_put_hex_u(unsigned long n)
 	}
 	else if (n <= 9)
 	{
-		ft_printf_c(n + '0');
+		i = ft_printf_c(n + '0');
 	}
 	else
 	{
-		ft_printf_c(n - 10 + 'a');
+		i = ft_printf_c(n - 10 + 'a');
 	}
+	if (i == -1)
+		return (-1);
+	return (0);
 }
 
-void	ft_put_hexbig_u(unsigned long n)
+int	ft_put_hexbig_u(unsigned long n)
 {
+	int	i;
+
+	i = 0;
 	if (n >= 16)
 	{
 		ft_put_hexbig_u(n / 16);
@@ -74,10 +83,13 @@ void	ft_put_hexbig_u(unsigned long n)
 	}
 	else if (n <= 9)
 	{
-		ft_printf_c(n + '0');
+		i = ft_printf_c(n + '0');
 	}
 	else
 	{
-		ft_printf_c(n - 10 + 'A');
+		i = ft_printf_c(n - 10 + 'A');
 	}
+	if (i == -1)
+		return (-1);
+	return (0);
 }

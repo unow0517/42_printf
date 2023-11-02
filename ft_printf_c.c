@@ -6,13 +6,16 @@
 /*   By: yowoo <yowoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 10:00:40 by yowoo             #+#    #+#             */
-/*   Updated: 2023/11/01 07:48:08 by yowoo            ###   ########.fr       */
+/*   Updated: 2023/11/02 12:29:08 by yowoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printf_c(char c)
+int	ft_printf_c(char c)
 {
-	write(1, &c, 1);
+	int	i;
+
+	i = write(1, &c, 1);
+	return (i);
 }
