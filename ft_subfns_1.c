@@ -6,7 +6,7 @@
 /*   By: yowoo <yowoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 09:57:55 by yowoo             #+#    #+#             */
-/*   Updated: 2023/11/02 16:20:29 by yowoo            ###   ########.fr       */
+/*   Updated: 2023/11/03 10:10:31 by yowoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_writenbr(int n)
 
 	output = n + 48;
 	i = write(1, &output, 1);
+	if (i == -1)
+		return (-1);
 	return (i);
 }
 
@@ -38,7 +40,7 @@ int	ft_putnbr(int n)
 	else if (n >= 10)
 	{
 		i += ft_putnbr(n / 10);
-		if (i <=-1)
+		if (i <= -1)
 			return (-1);
 		ft_putnbr(n % 10);
 	}
@@ -50,18 +52,18 @@ int	ft_putnbr(int n)
 	return (i);
 }
 
-size_t	ft_strlen(const char *str)
-{
-	unsigned int	len;
+// size_t	ft_strlen(const char *str)
+// {
+// 	unsigned int	len;
 
-	len = 0;
-	while (*str != '\0')
-	{
-		len++;
-		str++;
-	}
-	return (len);
-}
+// 	len = 0;
+// 	while (*str != '\0')
+// 	{
+// 		len++;
+// 		str++;
+// 	}
+// 	return (len);
+// }
 
 int	ft_putstr(char *s)
 {
@@ -77,5 +79,3 @@ int	ft_putstr(char *s)
 	}
 	return (i);
 }
-
-

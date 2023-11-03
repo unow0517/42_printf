@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_p.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yowoo <yowoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 11:51:25 by yowoo             #+#    #+#             */
-/*   Updated: 2023/11/03 10:02:53 by yowoo            ###   ########.fr       */
+/*   Created: 2023/10/09 11:20:56 by yowoo             #+#    #+#             */
+/*   Updated: 2023/10/26 15:02:08 by yowoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf_p(unsigned long ptr)
+size_t	ft_strlen(const char *str)
 {
-	int	res;
-	int	i;
+	unsigned int	len;
 
-	i = ft_putstr("0x");
-	if (i == -1)
-		return (-1);
-	ft_put_hex_u(ptr);
-	res = hex_len_u(ptr);
-	return (res + 2);
+	len = 0;
+	while (*str != '\0')
+	{
+		len++;
+		str++;
+	}
+	return (len);
 }
+
+// #include <stdio.h>
+// int main(){
+//     char str[] = "";
+//     unsigned int len = ft_strlen(str);
+//     printf("%u", len);
+// }

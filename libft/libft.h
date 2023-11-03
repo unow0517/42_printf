@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_p.c                                      :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yowoo <yowoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 11:51:25 by yowoo             #+#    #+#             */
-/*   Updated: 2023/11/03 10:02:53 by yowoo            ###   ########.fr       */
+/*   Created: 2023/10/17 10:37:28 by yowoo             #+#    #+#             */
+/*   Updated: 2023/11/03 10:09:44 by yowoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef LIBFT_H
+# define LIBFT_H
 
-int	ft_printf_p(unsigned long ptr)
-{
-	int	res;
-	int	i;
+# include <stdlib.h>
 
-	i = ft_putstr("0x");
-	if (i == -1)
-		return (-1);
-	ft_put_hex_u(ptr);
-	res = hex_len_u(ptr);
-	return (res + 2);
-}
+size_t	ft_strlen(const char *str);
+
+#endif

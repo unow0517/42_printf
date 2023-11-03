@@ -6,7 +6,7 @@
 /*   By: yowoo <yowoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 07:46:48 by yowoo             #+#    #+#             */
-/*   Updated: 2023/11/02 14:16:43 by yowoo            ###   ########.fr       */
+/*   Updated: 2023/11/03 09:52:14 by yowoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ static char	*putintplus(unsigned int num)
 
 	j = 0;
 	len = dec_len_uint(num);
-	// printf("len: %d",len);
 	res = (char *)malloc((len + 1) * sizeof(char));
-
 	if (!res)
 		return (0);
 	while (j < len)
@@ -44,17 +42,21 @@ int	ft_printf_u(unsigned int num)
 	if (num == 0)
 	{
 		i = ft_putnbr(0);
+		if (i == -1)
+			return (-1);
 		return (1);
 	}
 	else
 	{
 		ptr = putintplus(num);
+		if (!ptr)
+			return (-1);
 		i = ft_putstr(ptr);
 		free(ptr);
+		if (i == -1)
+			return (-1);
 	}
 	res = dec_len_uint(num);
-	if (i == -1)
-		return (-1);
 	return (res);
 }
 
